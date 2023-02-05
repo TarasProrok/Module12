@@ -31,8 +31,8 @@ public class ThreadD extends Thread {
             }
 //            while (getTime1() < 16) {
                 System.out.print(time1 + ", ");
- //               setTime1(time1 + 1);
-            }
+                setTime1(time1 + 1);
+//            }
         }
     }
 }
