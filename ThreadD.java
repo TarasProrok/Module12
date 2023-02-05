@@ -19,17 +19,23 @@ public class ThreadD extends Thread {
     }
 
     public void run() {
-            while (true) {
-                try {
-                    sleep(1000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-                    System.out.print(time1 + ", ");
-                    setTime1(time1 + 1);
+        number();
+    }
+
+    public void number() {
+        while (true) {
+            try {
+                sleep(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+//            while (getTime1() < 16) {
+                System.out.print(time1 + ", ");
+ //               setTime1(time1 + 1);
             }
         }
     }
+}
 class ThreadA extends Thread{
     ThreadD timer1;
     public ThreadA(ThreadD t){
