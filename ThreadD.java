@@ -24,15 +24,15 @@ public class ThreadD extends Thread {
 
     public void number() {
         while (true) {
-            try {
-                sleep(1000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-//            while (getTime1() < 16) {
+            for (; getTime1() < 16; ) {
                 System.out.print(time1 + ", ");
                 setTime1(time1 + 1);
-//            }
+                try {
+                    sleep(750);
+                } catch (InterruptedException e) {
+                    throw new RuntimeException(e);
+                }
+            }
         }
     }
 }
@@ -90,20 +90,19 @@ class ThreadC extends Thread{
         }
     }
 }
+
 class BuzzerTester {
     public static synchronized void main(String[] args) {
+
         ThreadD timer1 = new ThreadD();
-        timer1.start();
-
         ThreadA t1 = new ThreadA(timer1);
-        t1.start();
-
         ThreadB t2 = new ThreadB(timer1);
-        t2.start();
-
         ThreadC t3 = new ThreadC(timer1);
-        t3.start();
 
+            timer1.start();
+            t1.start();
+            t2.start();
+            t3.start();
 
+        }
     }
-}
