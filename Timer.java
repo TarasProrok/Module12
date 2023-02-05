@@ -1,7 +1,6 @@
  public class Timer extends Thread {
-        private int time = 0; // testing git
-        private boolean setting = false;
-        // what dou you like thirteen or what?
+        private int time = 0;
+        private static boolean setting = false;
 
         public synchronized int getTime() {
             while (setting) {
